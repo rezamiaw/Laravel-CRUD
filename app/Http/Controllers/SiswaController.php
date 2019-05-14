@@ -74,8 +74,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-      $pk = Siswa::find($id);
-      return view('update', ['pk' => $pk]);
+      $Siswas = \App\Siswa::all();
+      return view('edit', compact('Siswas'));
     }
 
     /**

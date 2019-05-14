@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'SiswaController@welcome');
 
 Route::get('/index', 'SiswaController@index');
@@ -18,6 +20,11 @@ Route::get('/create', 'SiswaController@create');
 Route::post('/create', 'SiswaController@store');
 
 Route::get('/update', 'SiswaController@edit');
-Route::post('/update/{id}', 'SiswaController@update');
+Route::post('/update/{id} ', 'SiswaController@update');
 
 Route::get('/destroy/{id}', 'SiswaController@destroy');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
